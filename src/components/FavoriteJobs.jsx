@@ -4,13 +4,13 @@ import Job from './Job';
 
 const FavoriteJobs = () => {
   const dispatch = useDispatch();
-  const companyList = useSelector((state) => state.companies.content);
+  const companyList = useSelector((state) => state.favorites.content);
   return (
     <Container>
       <Row>
         <Col xs={10} className="mx-auto mb-5">
-          {companyList.map((jobData) => (
-            <Job key={jobData._id} data={jobData} />
+          {companyList.map((jobData, i) => (
+            <Job key={i} data={jobData} />
           ))}
         </Col>
       </Row>

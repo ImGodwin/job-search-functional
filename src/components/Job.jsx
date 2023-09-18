@@ -20,14 +20,14 @@ const Job = ({ data }) => {
       <Col xs={3}>
         <Button
           className="ms-3"
-          variant={favorites.includes(data.company_name) ? 'danger' : 'success'}
+          variant={favorites.some((el) => el.company_name === data.company_name) ? 'danger' : 'success'}
           onClick={() => {
-            favorites.includes(data.company_name)
+            favorites.some((el) => el.company_name === data.company_name)
               ? dispatch(removeFromFavorites(data.company_name))
-              : dispatch(addToFavorites(data.company_name));
+              : dispatch(addToFavorites(data));
           }}
         >
-          {favorites.includes(data.company_name) ? 'Remove from favorites' : 'Add to favorites'}
+          {favorites.some((el) => el.company_name === data.company_name) ? 'Remove from favorites' : 'Add to favorites'}
         </Button>
       </Col>
     </Row>
